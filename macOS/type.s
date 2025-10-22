@@ -51,6 +51,8 @@ _main:				// Start of main function
 	// Let's start by checking to see if we have 2 arguments
 	// The number of arguments we have lives in register x0
 	// If we don't have exactly 2 arguments, go to the error function
+	cmp x0, #2
+	bne error
 
 	ldr	x0, [x1, #8]	// Puts the file name into register x0.
 
@@ -59,6 +61,8 @@ _main:				// Start of main function
 	// Now, we should tell the open function to read the file
 	// How did we say to do that in class?
 	// The second argument is always put into the x1 register
+
+	mov x1, #0
 
 	mov	x16, #5		// Put the number 5 into register x16 (open)
 	svc	#0x80		// Call the open function with 2 arguments
