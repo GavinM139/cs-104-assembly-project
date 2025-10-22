@@ -73,6 +73,9 @@ _main:				// Start of main function
 	// Whenever a function gives you back a number, that number will
 	// live in the x0 register.
 
+	cmo x0, #0
+	blt error
+
 	// Now, we should save the number the open function gave back to us
 	// Let's say it to the x20 register (for reason outside this class,
 	// it needs to be the x20 register; come talk to me during office
